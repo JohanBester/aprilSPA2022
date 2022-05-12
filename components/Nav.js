@@ -18,5 +18,4 @@ export default () => html`
       </li>
     </ul>
   </nav>
-  ;
 `;
