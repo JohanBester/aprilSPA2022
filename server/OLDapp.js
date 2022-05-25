@@ -1,7 +1,9 @@
 // 'Import' the http module
 const http = require("http");
+
 // Initialize the http server
-const server = http.createServer((request, response) => {
+const server = http
+  .createServer((request, response) => {
     // Handle the request from http://localhost:4040/status with HTTP GET method
     if (request.url === "/status" && request.method === "GET") {
       // Create the headers for response
@@ -12,6 +14,7 @@ const server = http.createServer((request, response) => {
       response.end();
     }
   })
+
   // Tell the HTTP server to start listening
   .listen(4040);
 
