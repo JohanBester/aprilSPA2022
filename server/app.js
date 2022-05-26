@@ -1,13 +1,23 @@
 // 'Import' the Express module instead of http
-const { request } = require("express");
 const express = require("express");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const pizzas = require("./routers/pizzas");
+
 // Initialize the Express application
 const app = express();
 
 dotenv.config();
 
 const PORT = process.env.API_PORT || 4040; // we use || to provide a default value
+
+mongoose.connect(process.env.MONGODB);
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "Connection Error:"));
+db.once(
+  "open",
+  console.log.bind(console, "Successfully opened connection to Mongo!")
+);
 
 // =============================
 // ==== ADD MIDDLEWARE HERE ====
@@ -37,6 +47,8 @@ app.get("/status", (request, response) => {
 app.post("/echo", (request, response) => {
   response.json({ "request.body": request.body });
 });
+
+app.use("/pizzas", pizzas);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
