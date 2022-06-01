@@ -62,9 +62,11 @@ router.put("/:id", (request, response) => {
   );
 });
 
-// Get all pizzas by crust using a query parameter
-router.get("/crust/:crust", (request, response) => {
-  Pizza.find(request.params.crust, (error, record) => {
+// Search pizzas by by different attributes and values
+router.get("/:atrib/:value", (request, response) => {
+  let filter = {};
+  filter[request.params.atrib] = request.params.value;
+  Pizza.find(filter, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
   });
