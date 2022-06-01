@@ -63,9 +63,9 @@ router.put("/:id", (request, response) => {
 });
 
 // Search pizzas by by different attributes and values
-router.get("/:atrib/:value", (request, response) => {
+router.get("attrib", (request, response) => {
   let filter = {};
-  filter[request.params.atrib] = request.params.value;
+  filter[request.params.attrib] = request.params.value;
   Pizza.find(filter, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
