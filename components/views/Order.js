@@ -77,12 +77,16 @@ export default () => html`
         />
         <label for="top5">red pepper</label>
       </div>
-      <input
-        type="hidden"
-        name="customer"
-        id="customer"
-        value="Anonymous Customer"
-      />
+      <div>
+        <label for="customer">Customer Name:</label>
+        <input
+          type="text"
+          name="customer"
+          id="customer"
+          placeholder="Customer Name"
+          value="Entre Customer"
+        />
+      </div>
       <input type="submit" name="submit" value="Submit Pizza" />
     </form>
   </section>

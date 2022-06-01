@@ -39,7 +39,7 @@ function afterRender(state) {
       }
 
       const requestData = {
-        customer: "JBB",
+        customer: inputList.customer.value,
         crust: inputList.crust.value,
         cheese: inputList.cheese.value,
         sauce: inputList.sauce.value,
