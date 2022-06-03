@@ -15,7 +15,7 @@ router.post("/", (request, response) => {
 // Get (read) all records from the collection
 router.get("/", (request, response) => {
   Pizza.find({}, (error, record) => {
-    if (error) return response.sendStatus(500).json(error);
+    if (error) return response.status(500).json(error);
     return response.json(record);
   });
 });
@@ -23,14 +23,14 @@ router.get("/", (request, response) => {
 // Get a single record by ID using a query parameter
 router.get("/:id", (request, response) => {
   Pizza.findById(request.params.id, (error, record) => {
-    if (error) return response.sendStatus(500).json(error);
+    if (error) return response.status(500).json(error);
     return response.json(record);
   });
 });
 
 router.delete("/:id", (request, response) => {
   Pizza.findByIdAndRemove(request.params.id, {}, (error, record) => {
-    if (error) return response.sendStatus(500).json(error);
+    if (error) return response.status(500).json(error);
     return response.json(record);
   });
 });
@@ -53,7 +53,7 @@ router.put("/:id", (request, response) => {
       upsert: true
     },
     (error, record) => {
-      if (error) return response.sendStatus(500).json(error);
+      if (error) return response.status(500).json(error);
       return response.json(record);
     }
   );
