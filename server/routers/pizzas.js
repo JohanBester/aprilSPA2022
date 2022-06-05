@@ -28,7 +28,6 @@ router.get("/:id", (request, response) => {
   });
 });
 
-// Delete a single record by ID using a query parameter
 router.delete("/:id", (request, response) => {
   Pizza.findByIdAndRemove(request.params.id, {}, (error, record) => {
     if (error) return response.status(500).json(error);
@@ -36,15 +35,13 @@ router.delete("/:id", (request, response) => {
   });
 });
 
-// Update a single record by ID using a query parameter
 router.put("/:id", (request, response) => {
   const body = request.body;
   Pizza.findByIdAndUpdate(
     request.params.id,
     {
       $set: {
-        // Take note that the customer is not included,
-        //  so it can't be changed
+        // Take note that the customer is not included, so it can't
         crust: body.crust,
         cheese: body.cheese,
         sauce: body.sauce,
@@ -62,10 +59,9 @@ router.put("/:id", (request, response) => {
   );
 });
 
-// Search pizzas by by different attributes and values
-router.get("attrib", (request, response) => {
+router.get("/:atrib/:value", (request, response) => {
   let filter = {};
-  filter[request.params.attrib] = request.params.value;
+  filter[request.params.atrib] = request.params.value;
   Pizza.find(filter, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
