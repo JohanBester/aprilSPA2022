@@ -6,7 +6,8 @@
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
     "serve": "parcel index.html",
     "app:watch": "nodemon --watch ./server -e js ./server/app.js",
-    "start": "node ./server/app.js"
+    "start": "node ./server/app.js",
+    "test": "npx jasmine-node spec"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "jasmine": "^4.1.0",
     "nodemon": "^2.0.16",
     "path-browserify": "^1.0.1",
     "prettier": "1.19.1",
