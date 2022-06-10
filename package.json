@@ -7,7 +7,7 @@
     "serve": "parcel index.html",
     "app:watch": "nodemon --watch ./server -e js ./server/app.js",
     "start": "node ./server/app.js",
-    "test": "npx jasmine-node spec"
+    "test": "jasmine --color"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,6 @@
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "jasmine": "^4.1.0",
     "nodemon": "^2.0.16",
     "path-browserify": "^1.0.1",
     "prettier": "1.19.1",
@@ -27,6 +26,7 @@
     "axios": "^0.27.2",
     "express": "^4.18.1",
     "html-literal": "^1.1.0",
+    "jasmin": "0.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^6.3.4",
     "navigo": "^8.11.1",

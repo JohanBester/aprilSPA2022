@@ -1,5 +1,5 @@
 const assert = require("assert");
-const addition = require("../addition");
+const addition = require("../testing/addition");
 
 describe("addition()", function() {
   //ARRANGE
